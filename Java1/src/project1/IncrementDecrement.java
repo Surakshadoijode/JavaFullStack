@@ -12,6 +12,7 @@ public class IncrementDecrement {
 		System.out.println("Pre Increment "+(++a));
 		System.out.println("Post Decrement "+ (a--));
 		System.out.println("Pre Decrement "+ (--a));
+		sc.close();
 
 	}
 

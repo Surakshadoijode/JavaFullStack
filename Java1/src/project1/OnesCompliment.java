@@ -9,7 +9,7 @@ public class OnesCompliment {
 		System.out.println("Enter number");
 		int a=sc.nextInt();
 		System.out.println("One's Complement "+ (~a));
-
+		sc.close();
 	}
 
 }

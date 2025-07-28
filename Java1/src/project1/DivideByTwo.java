@@ -10,6 +10,7 @@ public class DivideByTwo {
 		int a=sc.nextInt();
 		int res=a>>1;
 		System.out.println(a + " / 2 = " + res);
+		sc.close();
 
 	}
 

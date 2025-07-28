@@ -14,6 +14,7 @@ public class SwapWithTemp {
 		a=b;
 		b=temp;
 		System.out.println("After Swapling a: "+ a + " b : " +b);
+		sc.close();
 
 	}
 

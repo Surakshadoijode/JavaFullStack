@@ -12,6 +12,7 @@ public class LargestOfTwoNums {
 		int b=sc.nextInt();
 		int max=(a>b)?a:b;
 		System.out.println("Largest of two numbers: "+ max);
+		sc.close();
 
 
 	}

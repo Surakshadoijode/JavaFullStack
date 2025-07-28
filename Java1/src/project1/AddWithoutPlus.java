@@ -19,7 +19,7 @@ public class AddWithoutPlus {
 		System.out.println("Enter Second number");
 		int b=sc.nextInt();
 		System.out.println("Sum : "+ add(a,b));
-
+		sc.close();
 	}
 
 }
