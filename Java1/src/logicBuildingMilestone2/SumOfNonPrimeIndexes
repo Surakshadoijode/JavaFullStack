@@ -1,0 +1,45 @@
+public class SumOfNonPrimeIndexes {
+    public int sumOfNonPrimeIndexValues(int[] input1, int input2) {
+        int sum = 0;
+        
+        for (int i = 0; i < input2; i++) {
+            if (!isPrime(i)) {
+                sum += input1[i];
+            }
+        }
+        
+        return sum;
+    }
+    
+    private boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        if (num == 2) {
+            return true;
+        }
+        if (num % 2 == 0) {
+            return false;
+        }
+        
+        for (int i = 3; i * i <= num; i += 2) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static void main(String[] args) {
+        SumOfNonPrimeIndexes solution = new SumOfNonPrimeIndexes();
+        
+        int[] example1 = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+        System.out.println(solution.sumOfNonPrimeIndexValues(example1, example1.length)); // Output: 340
+        
+        int[] example2 = {-1, -2, -3, 3, 4, -7};
+        System.out.println(solution.sumOfNonPrimeIndexValues(example2, example2.length)); // Output: 1
+        
+        int[] example3 = {-4, -2};
+        System.out.println(solution.sumOfNonPrimeIndexValues(example3, example3.length)); // Output: -6
+    }
+}
