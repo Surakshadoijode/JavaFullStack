@@ -1,0 +1,50 @@
+public class UserIdGenerator {
+
+    public String userIdGeneration(String input1, String input2, int input3, int input4) {
+
+        String pinStr = String.valueOf(input3);
+
+        String smallerName = "";
+        String longerName = "";
+
+        if (input1.length() != input2.length()) {
+            if (input1.length() < input2.length()) {
+                smallerName = input1;
+                longerName = input2;
+            } else {
+                smallerName = input2;
+                longerName = input1;
+            }
+        } else {
+            if (input1.compareTo(input2) < 0) {
+                smallerName = input1;
+                longerName = input2;
+            } else {
+                smallerName = input2;
+                longerName = input1;
+            }
+        }
+
+        StringBuilder userIdBuilder = new StringBuilder();
+        userIdBuilder.append(smallerName.charAt(smallerName.length() - 1));
+
+        userIdBuilder.append(longerName);
+
+        userIdBuilder.append(pinStr.charAt(input4 - 1));
+        userIdBuilder.append(pinStr.charAt(pinStr.length() - input4));
+
+        String initialUserId = userIdBuilder.toString();
+        StringBuilder toggledUserId = new StringBuilder();
+        for (char c : initialUserId.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                toggledUserId.append(Character.toLowerCase(c));
+            } else if (Character.isLowerCase(c)) {
+                toggledUserId.append(Character.toUpperCase(c));
+            } else {
+                toggledUserId.append(c);
+            }
+        }
+
+        return toggledUserId.toString();
+    }
+}
