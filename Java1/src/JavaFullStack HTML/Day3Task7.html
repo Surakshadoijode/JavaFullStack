@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz App</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    button { display: block; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h2>Quiz App</h2>
+  <div id="quiz"></div>
+  <div id="quizResult"></div>
+
+  <script>
+    let questions = [
+      {q: "Capital of France?", options: ["Paris","Rome","Berlin"], answer: "Paris"},
+      {q: "2 + 2 = ?", options: ["3","4","5"], answer: "4"},
+      {q: "Largest planet?", options: ["Earth","Jupiter","Mars"], answer: "Jupiter"}
+    ];
+    let currentQ = 0, score = 0;
+
+    function loadQuestion() {
+      if(currentQ >= questions.length) {
+        document.getElementById("quiz").innerHTML = "";
+        document.getElementById("quizResult").textContent = "Score: " + score + "/" + questions.length;
+        return;
+      }
+
+      let q = questions[currentQ];
+      let quizDiv = document.getElementById("quiz");
+      quizDiv.innerHTML = "<p>"+q.q+"</p>";
+      q.options.forEach(opt => {
+        let btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => {
+          if(opt === q.answer) score++;
+          currentQ++;
+          loadQuestion();
+        };
+        quizDiv.appendChild(btn);
+      });
+    }
+    loadQuestion();
+  </script>
+</body>
+</html>

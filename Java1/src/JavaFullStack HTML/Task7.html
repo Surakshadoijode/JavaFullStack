@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Registration</title>
+  <style>
+    body { font-family: Arial, sans-serif; min-height:100vh; margin:0;
+           display:grid; place-items:center; background:#f7f7fb; }
+    .card { background:white; padding:1.2rem; border-radius:14px;
+            width:min(720px, 92%); box-shadow: 0 6px 18px rgba(0,0,0,.07); }
+    table { width:100%; border-collapse: collapse; }
+    th, td { padding:.55rem; vertical-align: top; }
+    th { text-align:right; width: 35%; color:#444; }
+    input[type="text"], input[type="password"], textarea, select {
+      width: 100%; padding:.5rem; border:1px solid #ccc; border-radius:8px;
+    }
+    textarea { resize: vertical; height: 90px; }
+    .actions { text-align:center; padding-top:.6rem; }
+    .actions button { padding:.6rem 1.1rem; border-radius:10px; border:1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2 style="text-align:center; margin-top:0;">Online Registration</h2>
+    <form>
+      <table>
+        <tr><th>Username</th><td><input type="text" name="username" required></td></tr>
+        <tr><th>Password</th><td><input type="password" name="password" required></td></tr>
+        <tr><th>Confirm password</th><td><input type="password" name="confirm" required></td></tr>
+        <tr><th>Name</th><td><input type="text" name="name" required></td></tr>
+        <tr>
+          <th>Gender</th>
+          <td>
+            <label><input type="radio" name="gender" value="female" required> Female</label>
+            &nbsp;&nbsp;
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            &nbsp;&nbsp;
+            <label><input type="radio" name="gender" value="other"> Other</label>
+          </td>
+        </tr>
+        <tr><th>Address</th><td><textarea name="address" placeholder="House no, Street, City, State, PIN"></textarea></td></tr>
+        <tr>
+          <th>Profession</th>
+          <td>
+            <select name="profession">
+              <option selected>Student</option>
+              <option>Engineer</option>
+              <option>Teacher</option>
+              <option>Self-Employed</option>
+              <option>Other</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <div class="actions">
+        <button type="submit">Register</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

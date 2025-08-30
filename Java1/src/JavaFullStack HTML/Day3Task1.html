@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form Validation</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    .error { color: red; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h2>Login Form</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Username"><br>
+    <span id="userError" class="error"></span><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <span id="passError" class="error"></span><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      let user = document.getElementById("username").value.trim();
+      let pass = document.getElementById("password").value.trim();
+      let valid = true;
+
+      document.getElementById("userError").textContent = "";
+      document.getElementById("passError").textContent = "";
+
+      if(user === "") {
+        document.getElementById("userError").textContent = "Username cannot be empty";
+        valid = false;
+      }
+      if(pass.length < 6) {
+        document.getElementById("passError").textContent = "Password must be at least 6 characters";
+        valid = false;
+      }
+      if(valid) alert("Login Successful!");
+    });
+  </script>
+</body>
+</html>

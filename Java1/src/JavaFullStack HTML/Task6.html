@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visitors information</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 1.2rem; display:grid; place-items:center; }
+    .wrap { width: min(680px, 100%); }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #444; padding: .6rem; vertical-align: top; }
+    th { background:#f7f7f7; text-align:left; }
+    .actions { text-align: center; }
+    hr { border: none; border-top: 2px solid #eee; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Visitors information</h2>
+    <hr />
+
+    <form>
+      <table>
+        <tr>
+          <th>Email address</th>
+          <td><input type="email" name="email" required placeholder="name@example.com" /></td>
+        </tr>
+        <tr>
+          <th>User’s interest</th>
+          <td>
+            <label><input type="checkbox" name="interest" value="research" /> Research</label><br>
+            <label><input type="checkbox" name="interest" value="purchase" /> Purchase</label>
+          </td>
+        </tr>
+        <tr>
+          <th>Occupation</th>
+          <td>
+            <select name="occupation">
+              <option selected>Student</option>
+              <option>Engineer</option>
+              <option>Teacher</option>
+              <option>Other</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>Send you junk emails?</th>
+          <td>
+            <label><input type="radio" name="junk" value="yes" required /> absolutely</label>
+            &nbsp;&nbsp;
+            <label><input type="radio" name="junk" value="no" /> no way man</label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="actions">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Counter</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    #remaining { font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h2>Character Counter</h2>
+  <textarea id="textArea" maxlength="200" rows="5" cols="40"></textarea><br>
+  <div id="remaining">200 characters remaining</div>
+
+  <script>
+    document.getElementById("textArea").addEventListener("input", function(){
+      let remaining = 200 - this.value.length;
+      let counter = document.getElementById("remaining");
+      counter.textContent = remaining + " characters remaining";
+      counter.style.color = remaining < 20 ? "red" : "black";
+    });
+  </script>
+</body>
+</html>

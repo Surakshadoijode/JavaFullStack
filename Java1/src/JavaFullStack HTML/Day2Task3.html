@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <style>
+    .calc button { width: 40px; height: 40px; margin: 2px; }
+  </style>
+</head>
+<body>
+  <h2>Calculator</h2>
+  <input type="text" id="calcDisplay" readonly>
+  <div class="calc">
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button onclick="press('/')">/</button><br>
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button onclick="press('*')">*</button><br>
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button onclick="press('-')">-</button><br>
+    <button onclick="press('0')">0</button>
+    <button onclick="press('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="press('+')">+</button><br>
+    <button onclick="clearCalc()">C</button>
+  </div>
+
+  <script>
+    function press(num) {
+      document.getElementById("calcDisplay").value += num;
+    }
+    function calculate() {
+      try {
+        document.getElementById("calcDisplay").value = eval(document.getElementById("calcDisplay").value);
+      } catch {
+        alert("Invalid Expression");
+      }
+    }
+    function clearCalc() {
+      document.getElementById("calcDisplay").value = "";
+    }
+  </script>
+</body>
+</html>

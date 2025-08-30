@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Slider</title>
+  <style>
+    #slider img { width: 300px; height: 200px; }
+  </style>
+</head>
+<body>
+  <h2>Image Slider</h2>
+  <div id="slider">
+    <img id="slideImg" src="https://picsum.photos/id/101/300/200">
+  </div>
+  <button onclick="prevSlide()">Prev</button>
+  <button onclick="nextSlide()">Next</button>
+
+  <script>
+    let images = [
+      "https://picsum.photos/id/101/300/200",
+      "https://picsum.photos/id/102/300/200",
+      "https://picsum.photos/id/103/300/200",
+      "https://picsum.photos/id/104/300/200"
+    ];
+    let index = 0;
+    function showSlide() {
+      document.getElementById("slideImg").src = images[index];
+    }
+    function nextSlide() {
+      index = (index + 1) % images.length;
+      showSlide();
+    }
+    function prevSlide() {
+      index = (index - 1 + images.length) % images.length;
+      showSlide();
+    }
+    setInterval(nextSlide, 3000);
+  </script>
+</body>
+</html>

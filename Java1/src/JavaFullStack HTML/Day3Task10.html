@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Auto-Save</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    input, textarea { display: block; margin: 10px 0; padding: 8px; width: 250px; }
+  </style>
+</head>
+<body>
+  <h2>Form Auto-Save</h2>
+  <form id="saveForm">
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <textarea id="message" placeholder="Message"></textarea>
+  </form>
+
+  <script>
+    ["name","email","message"].forEach(id=>{
+      let el = document.getElementById(id);
+      el.value = localStorage.getItem(id) || "";
+      el.addEventListener("input", ()=> localStorage.setItem(id, el.value));
+    });
+  </script>
+</body>
+</html>

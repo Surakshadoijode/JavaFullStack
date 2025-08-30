@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Clock & Greeting</title>
+</head>
+<body>
+  <h2>Digital Clock</h2>
+  <div id="clock" style="font-size:24px;"></div>
+  <div id="greeting" style="font-size:20px;color:blue;"></div>
+
+  <script>
+    function updateClock() {
+      let now = new Date();
+      let time = now.toLocaleTimeString();
+      document.getElementById("clock").textContent = time;
+      let hour = now.getHours();
+      let greet = "Good Evening";
+      if(hour < 12) greet = "Good Morning";
+      else if(hour < 18) greet = "Good Afternoon";
+      document.getElementById("greeting").textContent = greet;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

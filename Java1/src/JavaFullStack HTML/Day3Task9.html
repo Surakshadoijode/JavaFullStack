@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Light/Dark Mode</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    .dark { background: #222; color: #eee; }
+    .dark input, .dark textarea { background: #444; color: white; }
+  </style>
+</head>
+<body>
+  <h2>Light/Dark Mode</h2>
+  <button id="toggleMode">Toggle Dark/Light</button>
+
+  <script>
+    let modeBtn = document.getElementById("toggleMode");
+    if(localStorage.getItem("mode") === "dark") document.body.classList.add("dark");
+
+    modeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("mode", document.body.classList.contains("dark") ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>
