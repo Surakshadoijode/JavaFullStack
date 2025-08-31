@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 1 - Validation</title>
+  <script>
+    function validateForm() {
+      var memberNumber = document.getElementById("memberNumber").value.trim();
+      var password = document.getElementById("password").value.trim();
+
+      if (memberNumber === "") {
+        alert("Member number must be entered!");
+        document.getElementById("memberNumber").focus();
+        return false;
+      }
+      if (isNaN(memberNumber)) {
+        alert("Member number must be a valid number!");
+        document.getElementById("memberNumber").focus();
+        return false;
+      }
+
+      if (password === "") {
+        alert("Password must be entered!");
+        document.getElementById("password").focus();
+        return false;
+      }
+      if (password.length <= 4) {
+        alert("Password must be longer than 4 characters!");
+        document.getElementById("password").focus();
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Member Form</h2>
+  <form onsubmit="return validateForm()">
+    Member Number: <input type="text" id="memberNumber"><br><br>
+    Password: <input type="password" id="password"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

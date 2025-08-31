@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 2 - Phone Validation</title>
+  <script>
+    function validatePhone() {
+      var phone = document.getElementById("phone").value.trim();
+      var phonePattern = /^(\d{3}[-.\s]\d{3}[-.\s]\d{4})$/;
+
+      if (phone === "") {
+        alert("Phone number must be entered!");
+        document.getElementById("phone").focus();
+        return false;
+      }
+
+      if (!phonePattern.test(phone)) {
+        alert("Phone number must be in format: XXX-XXX-XXXX, XXX.XXX.XXXX, or XXX XXX XXXX");
+        document.getElementById("phone").focus();
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Phone Form</h2>
+  <form onsubmit="return validatePhone()">
+    Phone Number: <input type="text" id="phone"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

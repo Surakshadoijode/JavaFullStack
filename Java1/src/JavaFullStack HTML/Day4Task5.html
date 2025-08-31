@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Remove Characters</title>
+</head>
+<body>
+  <script>
+    function removeChars(str, start, count) {
+      return str.slice(0, start) + str.slice(start + count);
+    }
+    var text = "Hello World!";
+    var result = removeChars(text, 6, 5); 
+
+    document.write("Original String: " + text + "<br>");
+    document.write("After Removing: " + result);
+  </script>
+</body>
+</html>
